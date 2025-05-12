@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  jarvis:
+    build: .
+    container_name: jarvis-assistant
+    environment:
+      - DISPLAY=${DISPLAY}  # For GUI support
+      - QT_QPA_PLATFORM=xcb
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./config:/app/config
+      - /tmp/.X11-unix:/tmp/.X11-unix  # For GUI support
+    devices:
+      - /dev/snd:/dev/snd  # For audio support
+    network_mode: host  # For GUI and audio support
+    restart: unless-stopped
+
+  # Optional: MongoDB service
+  mongodb:
+    image: mongo:latest
+    container_name: jarvis-mongodb
+    volumes:
+      - mongodb_data:/data/db
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=jarvis
+      - MONGO_INITDB_ROOT_PASSWORD=changeme
+    restart: unless-stopped
+
+volumes:
+  mongodb_data:
+    name: jarvis-mongodb-data
