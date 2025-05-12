@@ -1,0 +1,132 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+trim_trailing_whitespace = true
+
+# Python files
+[*.py]
+indent_style = space
+indent_size = 4
+max_line_length = 100
+
+# JavaScript files
+[*.{js,jsx,ts,tsx}]
+indent_style = space
+indent_size = 2
+max_line_length = 100
+
+# YAML files
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+
+# JSON files
+[*.json]
+indent_style = space
+indent_size = 2
+
+# Markdown files
+[*.md]
+trim_trailing_whitespace = false
+max_line_length = off
+
+# Qt UI files
+[*.ui]
+indent_style = space
+indent_size = 2
+
+# Qt Style Sheets
+[*.qss]
+indent_style = space
+indent_size = 2
+
+# Documentation
+[docs/**/*.rst]
+indent_style = space
+indent_size = 3
+
+# Shell scripts
+[*.sh]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+
+# Batch files
+[*.{cmd,bat}]
+end_of_line = crlf
+
+# Makefiles
+[Makefile]
+indent_style = tab
+
+# Git config files
+[.git*]
+indent_style = tab
+
+# Requirements files
+[requirements{,-*}.txt]
+indent_style = space
+indent_size = 2
+
+# Database files
+[*.sql]
+indent_style = space
+indent_size = 2
+
+# Configuration files
+[*.{ini,cfg}]
+indent_style = space
+indent_size = 4
+
+# Docker files
+[{Dockerfile,docker-compose.yml}]
+indent_style = space
+indent_size = 2
+
+# CI/CD configuration
+[.github/workflows/*.yml]
+indent_style = space
+indent_size = 2
+
+# Test files
+[test_*.py]
+indent_style = space
+indent_size = 4
+max_line_length = 100
+
+# Plugin files
+[plugins/*.py]
+indent_style = space
+indent_size = 4
+max_line_length = 100
+
+# Service files
+[services/*.py]
+indent_style = space
+indent_size = 4
+max_line_length = 100
+
+# Core files
+[core/*.py]
+indent_style = space
+indent_size = 4
+max_line_length = 100
+
+# UI files
+[ui/*.py]
+indent_style = space
+indent_size = 4
+max_line_length = 100
+
+# Utility files
+[utils/*.py]
+indent_style = space
+indent_size = 4
+max_line_length = 100
