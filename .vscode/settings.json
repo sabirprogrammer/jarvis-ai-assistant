@@ -1,0 +1,115 @@
+{
+    // Editor settings
+    "editor.rulers": [100],
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true,
+        "source.fixAll": true
+    },
+    "editor.renderWhitespace": "boundary",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true,
+    "editor.suggestSelection": "first",
+    "editor.defaultFormatter": "ms-python.python",
+
+    // Python settings
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": ["--line-length", "100"],
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--max-line-length=100",
+        "--max-complexity=10"
+    ],
+    "python.linting.mypyEnabled": true,
+    "python.linting.banditEnabled": true,
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestArgs": [
+        "tests",
+        "-v",
+        "--cov=.",
+        "--cov-report=xml"
+    ],
+
+    // File associations
+    "files.associations": {
+        "*.qss": "css",
+        "*.yaml": "yaml",
+        "*.yml": "yaml",
+        "requirements*.txt": "pip-requirements"
+    },
+
+    // File exclusions
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.pytest_cache": true,
+        "**/.coverage": true,
+        "**/*.pyc": true,
+        ".venv": true,
+        "*.egg-info": true
+    },
+
+    // Search exclusions
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        ".venv": true,
+        "**/__pycache__": true
+    },
+
+    // Git settings
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+    "git.confirmSync": false,
+
+    // Terminal settings
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.defaultProfile.osx": "zsh",
+
+    // Docker settings
+    "docker.showStartPage": false,
+    "remote.containers.defaultExtensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+    ],
+
+    // Language specific settings
+    "[python]": {
+        "editor.formatOnType": true,
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
+    },
+    "[yaml]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "keep",
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        }
+    },
+    "[dockerfile]": {
+        "editor.formatOnSave": true,
+        "editor.quickSuggestions": {
+            "strings": true
+        }
+    },
+
+    // Workspace specific settings
+    "workbench.editor.enablePreview": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "One Dark Pro",
+
+    // Extension specific settings
+    "autoDocstring.docstringFormat": "google",
+    "autoDocstring.startOnNewLine": true,
+    "prettier.tabWidth": 2,
+    "prettier.singleQuote": true
+}
