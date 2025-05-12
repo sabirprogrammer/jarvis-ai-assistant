@@ -1,0 +1,68 @@
+{
+    "name": "Jarvis AI Assistant Development",
+    "dockerFile": "Dockerfile",
+    "runArgs": [
+        "--cap-add=SYS_PTRACE",
+        "--security-opt", "seccomp=unconfined",
+        "--device", "/dev/snd",
+        "--env", "DISPLAY=${env:DISPLAY}",
+        "--volume", "/tmp/.X11-unix:/tmp/.X11-unix"
+    ],
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+    ],
+    "workspaceFolder": "/workspace",
+    "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": true,
+        "python.linting.flake8Enabled": true,
+        "python.linting.mypyEnabled": true,
+        "python.formatting.provider": "black",
+        "python.formatting.blackArgs": ["--line-length", "100"],
+        "python.testing.pytestEnabled": true,
+        "python.testing.unittestEnabled": false,
+        "python.testing.nosetestsEnabled": false,
+        "python.testing.pytestArgs": [
+            "tests",
+            "-v",
+            "--cov=.",
+            "--cov-report=xml"
+        ],
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        },
+        "files.trimTrailingWhitespace": true,
+        "files.insertFinalNewline": true
+    },
+    "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "njpwerner.autodocstring",
+        "kevinrose.vsc-python-indent",
+        "visualstudioexptteam.vscodeintellicode",
+        "ms-azuretools.vscode-docker",
+        "redhat.vscode-yaml",
+        "eamodio.gitlens",
+        "mhutchie.git-graph",
+        "streetsidesoftware.code-spell-checker",
+        "davidanson.vscode-markdownlint",
+        "esbenp.prettier-vscode",
+        "pkief.material-icon-theme",
+        "zhuangtongfa.material-theme",
+        "seanwu.vscode-qt-for-python",
+        "ms-vsliveshare.vsliveshare",
+        "ryanluker.vscode-coverage-gutters",
+        "littlefoxteam.vscode-python-test-adapter"
+    ],
+    "forwardPorts": [8000],
+    "postCreateCommand": "pip install -r requirements.txt && pre-commit install",
+    "remoteUser": "vscode",
+    "features": {
+        "git": "latest",
+        "github-cli": "latest",
+        "python": "3.10",
+        "docker-in-docker": "latest"
+    }
+}
