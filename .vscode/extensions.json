@@ -1,0 +1,58 @@
+{
+    "recommendations": [
+        // Python
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "njpwerner.autodocstring",
+        "kevinrose.vsc-python-indent",
+        "visualstudioexptteam.vscodeintellicode",
+
+        // Docker
+        "ms-azuretools.vscode-docker",
+        "ms-vscode-remote.remote-containers",
+
+        // YAML
+        "redhat.vscode-yaml",
+
+        // Git
+        "eamodio.gitlens",
+        "mhutchie.git-graph",
+        "donjayamanne.githistory",
+
+        // Testing
+        "littlefoxteam.vscode-python-test-adapter",
+        "ryanluker.vscode-coverage-gutters",
+
+        // Formatting & Linting
+        "streetsidesoftware.code-spell-checker",
+        "davidanson.vscode-markdownlint",
+        "esbenp.prettier-vscode",
+
+        // Themes & Icons
+        "pkief.material-icon-theme",
+        "zhuangtongfa.material-theme",
+
+        // Utilities
+        "christian-kohler.path-intellisense",
+        "formulahendry.code-runner",
+        "gruntfuggly.todo-tree",
+        "wayou.vscode-todo-highlight",
+        "yzhang.markdown-all-in-one",
+        "shardulm94.trailing-spaces",
+        "oderwat.indent-rainbow",
+
+        // Database
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-sqlite",
+
+        // Qt
+        "seanwu.vscode-qt-for-python",
+
+        // Collaboration
+        "ms-vsliveshare.vsliveshare",
+        
+        // REST Client
+        "humao.rest-client"
+    ],
+    "unwantedRecommendations": []
+}
