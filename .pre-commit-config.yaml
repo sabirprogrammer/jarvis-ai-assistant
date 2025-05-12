@@ -1,0 +1,103 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    -   id: check-added-large-files
+    -   id: check-ast
+    -   id: check-json
+    -   id: check-merge-conflict
+    -   id: detect-private-key
+    -   id: mixed-line-ending
+    -   id: requirements-txt-fixer
+
+-   repo: https://github.com/psf/black
+    rev: 23.3.0
+    hooks:
+    -   id: black
+        language_version: python3
+        args: [--line-length=100]
+
+-   repo: https://github.com/PyCQA/flake8
+    rev: 6.0.0
+    hooks:
+    -   id: flake8
+        additional_dependencies: [
+            'flake8-docstrings',
+            'flake8-bugbear',
+            'flake8-comprehensions',
+            'flake8-simplify',
+        ]
+        args: [
+            '--max-line-length=100',
+            '--max-complexity=10',
+            '--select=E9,F63,F7,F82',
+        ]
+
+-   repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.3.0
+    hooks:
+    -   id: mypy
+        additional_dependencies: [types-all]
+        args: [--ignore-missing-imports]
+
+-   repo: https://github.com/asottile/pyupgrade
+    rev: v3.4.0
+    hooks:
+    -   id: pyupgrade
+        args: [--py38-plus]
+
+-   repo: https://github.com/PyCQA/bandit
+    rev: 1.7.5
+    hooks:
+    -   id: bandit
+        args: ['-ll']
+        files: .py$
+
+-   repo: https://github.com/PyCQA/isort
+    rev: 5.12.0
+    hooks:
+    -   id: isort
+        args: [--profile=black, --line-length=100]
+
+-   repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.0.0-alpha.9-for-vscode
+    hooks:
+    -   id: prettier
+        types_or: [javascript, jsx, ts, tsx, markdown, yaml, json]
+
+-   repo: local
+    hooks:
+    -   id: pytest
+        name: pytest
+        entry: pytest
+        language: system
+        pass_filenames: false
+        always_run: true
+        args: [
+            "tests/",
+            "-v",
+            "--cov=.",
+            "--cov-report=term-missing",
+        ]
+
+    -   id: check-requirements
+        name: Check requirements.txt
+        entry: python -c 'import pkg_resources; pkg_resources.require(open("requirements.txt").readlines())'
+        language: system
+        files: ^requirements\.txt$
+        pass_filenames: false
+
+ci:
+    autofix_commit_msg: 'style: auto fixes from pre-commit hooks'
+    autoupdate_commit_msg: 'ci: pre-commit autoupdate'
+    skip: [pytest]  # Skip running tests in CI mode
+
+default_language_version:
+    python: python3.10
+
+default_stages: [commit, push]
